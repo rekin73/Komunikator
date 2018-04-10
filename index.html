@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script>
+    var poll=function(){
+        $.ajax({
+            method:"Post",
+            url:"alp.php",
+            dataType:"json",
+            complete:poll
+        }).success(function(){
+            console.log(msg);
+        });
+    };
+    document.addEventListener("DOMContentLoaded", function(event) {
+        poll();
+    });
+    </script>
+</head>
+<body>
+    <textarea name="textArea" id="textArea" cols="30" rows="10"></textarea>
+</body>
+</html>
