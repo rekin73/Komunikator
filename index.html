@@ -34,27 +34,36 @@
     <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 
     <script>
-        var poll = function () {
-            /* $.ajax({
-                method: "Post",
-                url: "alp.php",
-                dataType: "json",
-                complete: poll
-            }).success(function () {
+        // Ajax Long Polling
+        var poll=function(ctg){
+                $.ajax({
+                        method: "POST",
+                        url: "alp.php",
+                        dataType: "json",
+                        data:ctg,
+                        complete: poll
+                }).success(function( msg ) {
                 console.log(msg);
-            }); */
-        };
-        document.addEventListener("DOMContentLoaded", function (event) {
-            poll();
+                });
+        }
+         
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var data={
+                action:"_MESSAGE",
+                content:"zawartośc"
+            }
+            poll(ctg);
         });
-    </script>
+         
+         
+        </script>
 </head>
 
 <body>
     <div id="textArea"></div>
         <div id="container">
             <textarea name="textInput" id="textInput" cols="30" rows="10"></textarea><button id="messageSubmit">Wyślij</button>
-
+<h1>asddad</h1>
     </div>
 
 </body>
