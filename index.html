@@ -35,13 +35,14 @@
 
     <script>
         // Ajax Long Polling
+        var callback=function(){console.log("complete")}
         var poll=function(ctg){
                 $.ajax({
                         method: "POST",
                         url: "alp.php",
                         dataType: "json",
                         data:ctg,
-                        complete: poll
+                        complete:callback 
                 }).success(function( msg ) {
                 console.log(msg);
                 });
@@ -52,7 +53,7 @@
                 action:"_MESSAGE",
                 content:"zawartośc"
             }
-            poll(ctg);
+            poll(data);
         });
          
          
@@ -63,7 +64,7 @@
     <div id="textArea"></div>
         <div id="container">
             <textarea name="textInput" id="textInput" cols="30" rows="10"></textarea><button id="messageSubmit">Wyślij</button>
-<h1>asddad</h1>
+
     </div>
 
 </body>
